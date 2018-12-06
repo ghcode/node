@@ -4,6 +4,8 @@ node_js:
 after-script:
 - scp -o StrictHostKeyChecking=no app.js root@39.105.135.169:/home/xkl
 before_install:
+- openssl aes-256-cbc -K $encrypted_a7f5ae4c779a_key -iv $encrypted_a7f5ae4c779a_iv
+  -in id_rsa.enc -out ./id_rsa -d
 - openssl aes-256-cbc -K $encrypted_a5e50feb3623_key -iv $encrypted_a5e50feb3623_iv
   -in id_rsa.enc -out id_rsa -d
 - mv id_rsa ~/.ssh -f
